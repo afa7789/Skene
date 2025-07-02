@@ -16,8 +16,8 @@ test:
 	@go test ./...
 
 # Builds
-build: ## Build para o sistema atual
-	@echo "\033[2m→ Detectando sistema...\033[0m"
+build: ## Build that checks current system
+	@echo "\033[2m→ Detecting system...\033[0m"
 	@OS=$$(go env GOOS); \
 	ARCH=$$(go env GOARCH); \
 	OUT="bin/skene-$${OS}-$${ARCH}"; \
