@@ -1,0 +1,12 @@
+{
+  "app_title": "Skene",
+  "hello_skene": "Olá, Skene!",
+  "menu_file": "Arquivo",
+  "menu_exit": "Sair",
+  "menu_help": "Ajuda",
+  "menu_about": "Sobre",
+  "about_text": "Editor Skene v0.1",
+  "menu_language": "Idioma",
+  "language_english": "Inglês",
+  "language_portuguese": "Português"
+}
