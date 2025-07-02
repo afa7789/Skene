@@ -6,6 +6,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 
+	"github.com/afa7789/skene/internal/counter"
 	"github.com/afa7789/skene/internal/localization"
 )
 
@@ -14,46 +15,55 @@ import (
 var appID = "com.afa7789.skene"
 
 type GUI struct {
-	app    fyne.App
-	window fyne.Window
+	app            fyne.App
+	window         fyne.Window
+	counterService *counter.CounterService
 }
 
 func NewGUI() *GUI {
 	myApp := app.NewWithID(appID)
 	myWindow := myApp.NewWindow(localization.T("app_title"))
 
+	// Cria os serviços
+	counterService := counter.NewCounterService()
+
 	return &GUI{
-		app:    myApp,
-		window: myWindow,
+		app:            myApp,
+		window:         myWindow,
+		counterService: counterService,
 	}
 }
 
-func (g *GUI) Serve() {
-	g.app.SetIcon(resourceIconSvg)
-	g.updateContent()
-	// importing menu
-	mainMenu := g.MainMenu()
-	g.window.SetMainMenu(mainMenu)
-
-	g.window.Resize(fyne.NewSize(400, 300))
-	g.window.ShowAndRun()
-}
-
-// updateContent creates and sets the main content
 func (g *GUI) updateContent() {
-	label := widget.NewLabel(localization.T("hello_skene"))
-	content := container.NewVBox(label)
+	// Cria counter widget com injeção de dependência
+	counterWidget := NewCounterWidget(g.counterService)
+
+	// Conteúdo principal
+	content := container.NewVBox(
+		widget.NewLabel(localization.T("hello_skene")),
+		counterWidget.GetContainer(),
+	)
+
 	g.window.SetContent(content)
 }
 
-// UpdateLanguage updates all UI elements with new language
 func (g *GUI) UpdateLanguage() {
+	// Atualiza título da janela
 	g.window.SetTitle(localization.T("app_title"))
 
-	// Recreate content with new language
+	// Recria conteúdo para atualizar textos (isso cria um novo widget com textos atualizados)
+	g.updateContent()
+}
+
+func (g *GUI) Serve() {
+	// g.app.SetIcon(resourceIconSvg) // TODO: Fix icon
+	g.window.Resize(fyne.NewSize(400, 300))
+
+	// Configura menu
+	g.window.SetMainMenu(g.MainMenu())
+
+	// Configura conteúdo inicial
 	g.updateContent()
 
-	// Recreate menu with new language
-	mainMenu := g.MainMenu()
-	g.window.SetMainMenu(mainMenu)
+	g.window.ShowAndRun()
 }

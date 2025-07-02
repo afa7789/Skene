@@ -10,5 +10,10 @@
   "menu_language": "Idioma",
   "language_english": "Inglês",
   "language_portuguese": "Português",
-  "language_spanish": "Espanhol"
+  "language_spanish": "Espanhol",
+  "counter_title": "Contador",
+  "counter_increment": "Incrementar",
+  "counter_decrement": "Decrementar",
+  "counter_reset": "Reiniciar",
+  "counter_value": "Valor: %d"
 }
