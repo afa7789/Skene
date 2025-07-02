@@ -1,3 +1,5 @@
 .env
 trash/
 bin/
+dist/
+.DS_Store

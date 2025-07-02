@@ -1,8 +1,10 @@
-package client
+// client package for skene
+package skene
 
 import "github.com/afa7789/skene/internal/gui"
 
 // Run starts the main client (GUI for now)
 func Run() {
-	gui.Start()
+	gui := gui.NewGUI()
+	gui.Serve()
 }

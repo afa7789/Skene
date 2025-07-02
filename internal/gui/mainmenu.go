@@ -9,19 +9,17 @@ import (
 func (g *GUI) MainMenu() *fyne.MainMenu {
 	// Create language menu dynamically based on available locales
 	availableLanguages := localization.GetAvailableLanguages()
+	languageDisplayKeys := localization.GetLanguageDisplayKeyMap()
 	languageItems := make([]*fyne.MenuItem, 0, len(availableLanguages))
 
 	for _, lang := range availableLanguages {
 		lang := lang // capture loop variable
 		var displayName string
-		switch lang {
-		case "en":
-			displayName = localization.T("language_english")
-		case "pt":
-			displayName = localization.T("language_portuguese")
-		case "es":
-			displayName = "Español"
-		default:
+
+		// Try to get the translation key from the map, fallback to language code
+		if translationKey, exists := languageDisplayKeys[lang]; exists {
+			displayName = localization.T(translationKey)
+		} else {
 			displayName = lang // fallback to language code
 		}
 

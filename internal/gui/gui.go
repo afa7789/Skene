@@ -9,6 +9,10 @@ import (
 	"github.com/afa7789/skene/internal/localization"
 )
 
+// built in icon.go by the fyne bundle command
+// var resourceIconSvg fyne.Resource
+var appID = "com.afa7789.skene"
+
 type GUI struct {
 	app    fyne.App
 	window fyne.Window
@@ -25,8 +29,9 @@ func NewGUI() *GUI {
 }
 
 func (g *GUI) Serve() {
+	a := app.NewWithID(appID)
+	a.SetIcon(resourceIconSvg)
 	g.updateContent()
-
 	// importing menu
 	mainMenu := g.MainMenu()
 	g.window.SetMainMenu(mainMenu)
@@ -52,9 +57,4 @@ func (g *GUI) UpdateLanguage() {
 	// Recreate menu with new language
 	mainMenu := g.MainMenu()
 	g.window.SetMainMenu(mainMenu)
-}
-
-func Start() {
-	gui := NewGUI()
-	gui.Serve()
 }

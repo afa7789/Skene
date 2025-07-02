@@ -1,7 +1,7 @@
 package main
 
-import "github.com/afa7789/skene/internal/client"
+import "github.com/afa7789/skene/internal/skene"
 
 func main() {
-	client.Run()
+	skene.Run()
 }

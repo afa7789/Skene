@@ -1,4 +1,5 @@
 {
+  "display_key": "language_portuguese",
   "app_title": "Skene",
   "hello_skene": "Olá, Skene!",
   "menu_file": "Arquivo",
@@ -8,5 +9,6 @@
   "about_text": "Editor Skene v0.1",
   "menu_language": "Idioma",
   "language_english": "Inglês",
-  "language_portuguese": "Português"
+  "language_portuguese": "Português",
+  "language_spanish": "Espanhol"
 }
