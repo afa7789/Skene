@@ -1,4 +1,4 @@
 # Skene
-Skene é uma palavra de origem grega que significa "palco" ou "cenário". No teatro antigo, era a estrutura onde se preparavam e apresentavam as cenas — simbolizando criação e expressão.
+Skene is a word of Greek origin that means "stage" or "scenery". In ancient theater, it was the structure where scenes were prepared and presented — symbolizing creation and expression.
 
-Esse software é um GUI feito em GO.
+This software is a GUI made in GO.
