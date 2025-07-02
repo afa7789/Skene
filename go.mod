@@ -2,8 +2,6 @@ module github.com/afa7789/skene
 
 go 1.24.4
 
-toolchain go1.24.4
-
 require (
 	fyne.io/fyne/v2 v2.6.1
 	github.com/nicksnyder/go-i18n/v2 v2.6.0
