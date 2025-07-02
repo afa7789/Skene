@@ -31,14 +31,21 @@ func (g *GUI) MainMenu() *fyne.MainMenu {
 
 	languageMenu := fyne.NewMenu(localization.T("menu_language"), languageItems...)
 
-	// Top menu
+	// File menu with Exit option
 	fileMenu := fyne.NewMenu(localization.T("menu_file"),
 		fyne.NewMenuItem(localization.T("menu_exit"), func() {
 			g.app.Quit()
 		}),
 	)
 
-	mainMenu := fyne.NewMainMenu(fileMenu, languageMenu)
+	// Help menu with About option
+	helpMenu := fyne.NewMenu(localization.T("menu_help"),
+		fyne.NewMenuItem(localization.T("menu_about"), func() {
+			// TODO: Implement about dialog
+		}),
+	)
+
+	mainMenu := fyne.NewMainMenu(fileMenu, languageMenu, helpMenu)
 
 	return mainMenu
 }

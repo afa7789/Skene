@@ -19,7 +19,7 @@ type GUI struct {
 }
 
 func NewGUI() *GUI {
-	myApp := app.New()
+	myApp := app.NewWithID(appID)
 	myWindow := myApp.NewWindow(localization.T("app_title"))
 
 	return &GUI{
@@ -29,8 +29,7 @@ func NewGUI() *GUI {
 }
 
 func (g *GUI) Serve() {
-	a := app.NewWithID(appID)
-	a.SetIcon(resourceIconSvg)
+	g.app.SetIcon(resourceIconSvg)
 	g.updateContent()
 	// importing menu
 	mainMenu := g.MainMenu()
